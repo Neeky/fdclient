@@ -7,16 +7,19 @@
     "browser_action":{
         "default_icon":"img/pbc.png",
         "default_title":"点击开始收集数据"
+        //"default_popup":"html/popup.html"
     },
     "background":{
         "scripts":["js/background.js"],
         "persistent":true
     },
     "permissions":["<all_urls>","tabs","activeTab"],
+    "web_accessible_resources":["img/*","js/popup.js","html/*","css/*"],
     "content_scripts":[
         //  用于收集shibor的数据
         {   "matches":["http://www.shibor.org/shibor/web/html/shibor.html*"],
-            "js":["js/shibor.js"]
+            "js":["js/shibor.js"],
+            "run_at":""
         }
     ]
 }
