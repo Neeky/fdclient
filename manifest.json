@@ -1,0 +1,22 @@
+{
+    "name":"fdclient",
+    "version":"0.17.06.23",
+    "description":"www.financedatas.com web app",
+    "manifest_version":2,
+
+    "browser_action":{
+        "default_icon":"img/pbc.png",
+        "default_title":"点击开始收集数据"
+    },
+    "background":{
+        "scripts":["js/background.js"],
+        "persistent":true
+    },
+    "permissions":["<all_urls>","tabs","activeTab"],
+    "content_scripts":[
+        //  用于收集shibor的数据
+        {   "matches":["http://www.shibor.org/shibor/web/html/shibor.html*"],
+            "js":["js/shibor.js"]
+        }
+    ]
+}
