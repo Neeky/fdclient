@@ -18,8 +18,7 @@
     "content_scripts":[
         //  用于收集shibor的数据
         {   "matches":["http://www.shibor.org/shibor/web/html/shibor.html*"],
-            "js":["js/shibor.js"],
-            "run_at":""
+            "js":["js/shibor.js"]
         }
     ]
 }

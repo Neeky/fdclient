@@ -9,3 +9,8 @@ chrome.browserAction.onClicked.addListener(function(tab){
     chrome.tabs.create({url:mainPageUrl});
 });
 //*/
+
+//*/
+//发送数据到服务器
+
+//*/
