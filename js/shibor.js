@@ -22,6 +22,15 @@ dts['threeMonth']=Number(tmp[4]);
 dts['sixMonth']=Number(tmp[5]);
 dts['nineMonth']=Number(tmp[6]);
 dts['oneYear']=Number(tmp[7]);
+dts['target']='shibor';
 // 把数据保存成json
 jdts=JSON.stringify(dts);
-alert(jdts);
+//*/ 
+// 发送数据到后台
+chrome.runtime.sendMessage(jdts, function(response){
+    //*/
+    // 当收到background的响应时，就关闭当前的tab。
+    window.close();
+    //*/
+});
+//*/
