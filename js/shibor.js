@@ -25,6 +25,27 @@ dts['oneYear']=Number(tmp[7]);
 dts['target']='shibor';
 // 把数据保存成json
 jdts=JSON.stringify(dts);
+/*/
+// 包装成post参数 这种方法不太好！
+var message='oneNight='
+    + encodeURIComponent(dts['oneNight'])
+    + '&oneWeek='
+    + encodeURIComponent(dts['oneWeek'])
+    + '&twoWeek='
+    + encodeURIComponent(dts['twoWeek'])
+    + '&oneMonth='
+    + encodeURIComponent(dts['oneMonth'])
+    + '&threeMonth='
+    + encodeURIComponent(dts['threeMonth'])
+    + '&sixMonth='
+    + encodeURIComponent(dts['sixMonth'])
+    + '&nineMonth='
+    + encodeURIComponent(dts['nineMonth'])
+    + '&oneYear='
+    + encodeURIComponent(dts['oneYear'])
+    + '&target='
+    + encodeURIComponent('shibor')
+//*/
 //*/ 
 // 发送数据到后台
 chrome.runtime.sendMessage(jdts, function(response){

@@ -25,6 +25,8 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
     // post数据到服务器
     var xhr = new XMLHttpRequest();
     xhr.open("POST", 'http://www.workstudio.com', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.setRequestHeader('Content-Length', message.length);
     xhr.onreadystatechange = function(){
         if(xhr.readyState==4){
             /*/ 在收到服务器的回应后要触发的动作、目前不做回应。
@@ -33,6 +35,7 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
         }
     }
     xhr.send(message);
+    //alert(message);
     //*/
 
     //*/

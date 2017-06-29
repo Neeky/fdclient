@@ -19,6 +19,11 @@
         //  用于收集shibor的数据
         {   "matches":["http://www.shibor.org/shibor/web/html/shibor.html*"],
             "js":["js/shibor.js"]
+        },
+        //  用于收集上海黄金交易所金价
+        {
+            "matches":["http://www.sge.com.cn/"],
+            "js":["js/seg.js"]
         }
     ]
 }
