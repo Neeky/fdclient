@@ -12,6 +12,8 @@ document.getElementById("btnSegCollect").addEventListener('click',function(){
     chrome.tabs.create({url:"http://www.sge.com.cn/"});
 }); //*/
 
-
+document.getElementById("btnReserveCollect").addEventListener('click',function(){
+    chrome.tabs.create({url:"http://www.pbc.gov.cn/diaochatongjisi/resource/cms/2017/06/2017060716033391362.htm"});
+});
 
 

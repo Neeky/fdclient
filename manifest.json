@@ -24,6 +24,11 @@
         {
             "matches":["http://www.sge.com.cn/"],
             "js":["js/seg.js"]
+        },
+        //  中国人民银行储备资产
+        {
+            "matches":["http://www.pbc.gov.cn/diaochatongjisi/resource/cms/2017/06/2017060716033391362.htm"],
+            "js":["js/pucOfficeReserveAssets.js"]
         }
     ]
 }
