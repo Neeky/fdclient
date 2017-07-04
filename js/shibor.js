@@ -12,6 +12,9 @@ tmp=[];
 for(var i=0;i<8;i++){
     tmp[i]=quxian.rows[i].cells[2].innerHTML;
 }
+// 收集shibor 利率的发布日期
+pushDate=document.getElementsByTagName('table')[1].rows[0].cells[0].innerText;
+pushDate=pushDate.replace('  ','');
 // 包装成对象 datas(dts)
 dts={};
 dts['oneNight']=Number(tmp[0]);
@@ -22,33 +25,10 @@ dts['threeMonth']=Number(tmp[4]);
 dts['sixMonth']=Number(tmp[5]);
 dts['nineMonth']=Number(tmp[6]);
 dts['oneYear']=Number(tmp[7]);
-dts['target']='shibor';
-// 把数据保存成json
-jdts=JSON.stringify(dts);
-/*/
-// 包装成post参数 这种方法不太好！
-var message='oneNight='
-    + encodeURIComponent(dts['oneNight'])
-    + '&oneWeek='
-    + encodeURIComponent(dts['oneWeek'])
-    + '&twoWeek='
-    + encodeURIComponent(dts['twoWeek'])
-    + '&oneMonth='
-    + encodeURIComponent(dts['oneMonth'])
-    + '&threeMonth='
-    + encodeURIComponent(dts['threeMonth'])
-    + '&sixMonth='
-    + encodeURIComponent(dts['sixMonth'])
-    + '&nineMonth='
-    + encodeURIComponent(dts['nineMonth'])
-    + '&oneYear='
-    + encodeURIComponent(dts['oneYear'])
-    + '&target='
-    + encodeURIComponent('shibor')
-//*/
-//*/ 
+dts['pushDate']=pushDate
+dts['target']='http://www.financedatas.com/component/shibor/webclient/upload/';
 // 发送数据到后台
-chrome.runtime.sendMessage(jdts, function(response){
+chrome.runtime.sendMessage(dts, function(response){
     //*/
     // 当收到background的响应时，就关闭当前的tab。
     window.close();

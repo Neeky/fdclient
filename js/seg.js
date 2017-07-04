@@ -21,18 +21,14 @@ dts['openingPrice']=text.split(',')[1];
 dts['closingPrice']=text.split(',')[2];
 dts['highestPrice']=text.split(',')[3];
 dts['minimumPrice']=text.split(',')[4];
-dts['target']='glod';
+dts['target']='http://www.financedatas.com/component/glod/webclient/upload/';
 
 // 如果还没有收盘，那么收盘价会被记为'-'；在这里判断如果收盘价是'-'，那么就把它设置为-1
 if(dts['closingPrice']=='-'){
     dts['closingPrice']=-1;
 }
 
-//
-jdts=JSON.stringify(dts);
-alert(jdts);
-
-chrome.runtime.sendMessage(jdts, function(response){
+chrome.runtime.sendMessage(dts, function(response){
     //*/
     // 当收到background的响应时，就关闭当前的tab。
     window.close();

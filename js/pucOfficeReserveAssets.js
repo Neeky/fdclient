@@ -28,6 +28,7 @@ function getCurrentOfficeReserveAssetInfo(){
         }
     }
     dts['foreignCurrentReserve']=Number(tmp[tmp.length - 1]);
+    dts['month']=tmp.length;
     
     // 基金组织储备头寸
     tmp=[];
