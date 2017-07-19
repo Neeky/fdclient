@@ -25,10 +25,23 @@
             "matches":["http://www.sge.com.cn/"],
             "js":["js/seg.js"]
         },
+        //  上海黄金交易所的历史数据
+        {
+            "matches":["http://www.sge.com.cn/sjzx/mrhqsj/*"],
+            "js":["js/segInit.js"]
+        },
         //  中国人民银行储备资产
         {
             "matches":["http://www.pbc.gov.cn/diaochatongjisi/resource/cms/2017/06/2017060716033391362.htm"],
-            "js":["js/pucOfficeReserveAssets.js"]
+            "js":["js/pbcOfficeReserveAssets.js"]
+        },
+        {
+            "matches":["http://www.pbc.gov.cn/*"],
+            "js":["js/pbcMoneySupply.js"]
+        },
+        {
+            "matches":["http://www.cninfo.com.cn/cninfo-new/information/companylist"],
+            "js":["js/cninfo.js"]
         }
     ]
 }
