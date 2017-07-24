@@ -42,6 +42,10 @@
         {
             "matches":["http://www.cninfo.com.cn/cninfo-new/information/companylist"],
             "js":["js/cninfo.js"]
+        },
+        {
+            "matches":["http://www.cninfo.com.cn/information/companyinfo_n.html?fulltext?*"],
+            "js":["js/cninfoCompanyInfo.js"]
         }
     ]
 }
