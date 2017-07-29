@@ -104,11 +104,12 @@ function getBrief(){
     briefInfo['target']=target+'/component/cninfo/update/company/brief/info';
 
     var dts=briefInfo;
-    alert(JSON.stringify(dts));
+    //alert(JSON.stringify(dts));
+    console.log(JSON.stringify(dts));
     chrome.runtime.sendMessage(dts, function(response){
     //*/
     // 当收到background的响应时，就关闭当前的tab。
-        alert("this is callback");
+        //alert("this is callback");
         window.close();
     //*/
     });
@@ -116,6 +117,10 @@ function getBrief(){
 }
 
 
+function main (){
+    document.getElementById('i_nr').onload=getBrief;
+    document.getElementById('brief').getElementsByTagName('a')[0].click();
+}
 
-document.getElementById('i_nr').onload=getBrief;
-document.getElementById('brief').getElementsByTagName('a')[0].click();
+main();
+
