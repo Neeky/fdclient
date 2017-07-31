@@ -44,7 +44,7 @@
             "js":["js/cninfo.js"]
         },
         {
-            "matches":["http://www.cninfo.com.cn/information/companyinfo_n.html?fulltext?*"],
+            "matches":["http://www.cninfo.com.cn/information/companyinfo_n.html?fulltext?*","http://www.cninfo.com.cn/information/hkinfo*"],
             "js":["js/cninfoCompanyInfo.js"]
         }
     ]
