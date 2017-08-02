@@ -4,8 +4,8 @@
     1、页面由一个iframe 来引用信息、在查看特写信息时、只是重新加载相关的iframe
 */
 
-//var target = 'http://www.financedatas.com';
-var target ='http://www.workstudio.com';
+var target = 'http://www.financedatas.com';
+//var target ='http://www.workstudio.com';
 
 function getLastest() {
     /*
