@@ -4,8 +4,8 @@
     1、页面由一个iframe 来引用信息、在查看特写信息时、只是重新加载相关的iframe
 */
 
-var target = 'http://www.financedatas.com';
-//var target ='http://www.workstudio.com';
+//var target = 'http://www.financedatas.com';
+var target ='http://www.workstudio.com';
 
 function getLastest() {
     /*
@@ -88,7 +88,7 @@ function getBrief() {
             issuedQuantity = briefTable.rows[14].cells[1].innerText.trim();
             issuedQuantity = issuedQuantity.replace(',', '');
             issuedQuantity = parseFloat(issuedQuantity) * 10000;
-            if(issuedQuantity == null){
+            if(isNaN(issuedQuantity)){
                 issuedQuantity=0;
             }
         }
@@ -96,7 +96,7 @@ function getBrief() {
             issuedQuantity = briefTable.rows[14].cells[1].innerText.trim();
             issuedQuantity = issuedQuantity.replace(',', '');
             issuedQuantity = parseFloat(issuedQuantity);
-            if(issuedQuantity == null){
+            if(isNaN(issuedQuantity)){
                 issuedQuantity=0;
             }
         }
@@ -104,7 +104,9 @@ function getBrief() {
         //  issuePrice  发行价格
         var issuePrice = briefTable.rows[15].cells[1].innerText.trim();
         briefInfo['issuePrice'] = parseFloat(issuePrice);
-        if (briefInfo['issuePrice'] == null){
+        console.log('issueprice is :');
+        console.log(briefInfo['issuePrice']);
+        if (isNaN(briefInfo['issuePrice'])){
             briefInfo['issuePrice']=0;
         }
         //  ipoPERate  发行市盈率
@@ -113,7 +115,9 @@ function getBrief() {
             ipoPERate = 0;
         }
         briefInfo['ipoPERate'] = parseFloat(ipoPERate);
-
+        if(isNaN(briefInfo['ipoPERate'])){
+            briefInfo['ipoPERate']=0;
+        }
         //  issueMode  发行方式
         briefInfo['issueMode'] = briefTable.rows[17].cells[1].innerText.trim();
         //  leadUnderwrite 主承销商
