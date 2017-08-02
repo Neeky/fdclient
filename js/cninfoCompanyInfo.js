@@ -5,6 +5,7 @@
 */
 
 var target = 'http://www.financedatas.com';
+//var target ='http://www.workstudio.com';
 
 function getLastest() {
     /*
@@ -53,11 +54,17 @@ function getBrief() {
             //  注册资本以万元为单位
             egisteredCapital = briefTable.rows[6].cells[1].innerText.trim().replace(',', '');
             egisteredCapital = parseFloat(egisteredCapital) * 10000;
+            if(egisteredCapital == null){
+                egisteredCapital=0;
+            }
         }
         else {
             //  注册资本以元为单位
             egisteredCapital = briefTable.rows[6].cells[1].innerText.trim().replace(',', '');
             egisteredCapital = parseFloat(egisteredCapital);
+            if(egisteredCapital=null){
+                egisteredCapital=0;
+            }
         }
         briefInfo['registeredCapital'] = egisteredCapital;
         //  industry  行业种类
@@ -81,16 +88,25 @@ function getBrief() {
             issuedQuantity = briefTable.rows[14].cells[1].innerText.trim();
             issuedQuantity = issuedQuantity.replace(',', '');
             issuedQuantity = parseFloat(issuedQuantity) * 10000;
+            if(issuedQuantity == null){
+                issuedQuantity=0;
+            }
         }
         else {
             issuedQuantity = briefTable.rows[14].cells[1].innerText.trim();
             issuedQuantity = issuedQuantity.replace(',', '');
             issuedQuantity = parseFloat(issuedQuantity);
+            if(issuedQuantity == null){
+                issuedQuantity=0;
+            }
         }
         briefInfo['issuedQuantity'] = issuedQuantity;
         //  issuePrice  发行价格
         var issuePrice = briefTable.rows[15].cells[1].innerText.trim();
         briefInfo['issuePrice'] = parseFloat(issuePrice);
+        if (briefInfo['issuePrice'] == null){
+            briefInfo['issuePrice']=0;
+        }
         //  ipoPERate  发行市盈率
         var ipoPERate = briefTable.rows[16].cells[1].innerText.trim();
         if (!ipoPERate) {
@@ -112,7 +128,7 @@ function getBrief() {
     catch (error) {
         console.log('enter catch');
         briefInfo['stockCode'] = stockcode;
-        briefInfo['status'] = 'exception';
+        briefInfo['status'] = 'shortinput';
         briefInfo['target'] = target + '/component/cninfo/update/company/brief/info';
         console.log('exit catch');
     }
@@ -155,7 +171,7 @@ function main() {
             stockCode = stockCode.replace('股票代码', '').replace('股票简称', '');
             stockCode = stockCode.split('：')[1].trim();
             briefInfo['stockCode'] = stockCode;
-            briefInfo['status'] = 'exception';
+            briefInfo['status'] = 'shortinput';
             briefInfo['target'] = target + '/component/cninfo/update/company/brief/info';
             var dts = briefInfo;
             console.log('this information is printed by tm function:')
